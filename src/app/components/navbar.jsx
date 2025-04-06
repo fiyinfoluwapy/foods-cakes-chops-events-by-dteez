@@ -9,6 +9,7 @@ import Image from 'next/image';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
   const router = useRouter(); // Use router for navigation
 
   const navLinks = [
@@ -18,6 +19,21 @@ export default function Navbar() {
     { name: 'Grills & Chops', link: '/grills-gallery' },
     { name: 'Contact', link: '/contact' },
   ];
+
+  // Track scrolling behavior
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -39,14 +55,14 @@ export default function Navbar() {
       variants={slideInFromTop}
       initial="hidden"
       animate="visible"
-      className="fixed top-0 left-0 w-full bg-babyPink shadow-lg p-4 flex justify-between items-center z-50"
+      className={`fixed top-0 left-0 w-full p-4 flex justify-between items-center z-50 transition-all duration-300 ${scrolling ? 'bg-black text-white shadow-lg' : 'bg-white text-black shadow-md'}`}
     >
       {/* Logo */}
       <motion.h1
         variants={fadeIn}
         initial="hidden"
         animate="visible"
-        className="text-3xl font-bold font-chakra text-blue-500"
+        className="text-3xl font-bold font-chakra"
       >
         Dteez
       </motion.h1>
@@ -64,8 +80,8 @@ export default function Navbar() {
             variants={fadeIn}
             className="transition duration-300"
           >
-            <Link href={link.link} className="text-black hover:text-orange-500 hover:font-chakra">
-              {link.name} {/* No need for an <a> tag inside <Link> */}
+            <Link href={link.link} className="hover:text-orange-500 hover:font-chakra">
+              {link.name} 
             </Link>
           </motion.li>
         ))}
@@ -89,13 +105,13 @@ export default function Navbar() {
         />
       </motion.button>
 
-      {/* Dark Overlay 
+      {/* Dark Overlay */}
       {isOpen && (
         <div
           className="fixed inset-0 z-30 bg-black/40 transition-opacity duration-300"
           onClick={() => setIsOpen(false)}
         ></div>
-      )} */}
+      )}
 
       {/* Mobile Menu */}
       <motion.div
