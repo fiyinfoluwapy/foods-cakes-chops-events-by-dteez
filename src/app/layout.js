@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from './components/navbar';
 import Header from "./components/header";
 import AboutSection from "./components/about";
+import MeetOurBrands from "./components/brands";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <Header />
         <AboutSection />
+        <MeetOurBrands />
         <main>{children}</main>
       </body>
     </html>
