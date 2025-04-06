@@ -64,10 +64,8 @@ export default function Navbar() {
             variants={fadeIn}
             className="transition duration-300"
           >
-            <Link href={link.link} passHref>
-              <a className="text-black hover:text-orange-500 hover:font-chakra">
-                {link.name}
-              </a>
+            <Link href={link.link} className="text-black hover:text-orange-500 hover:font-chakra">
+              {link.name} {/* No need for an <a> tag inside <Link> */}
             </Link>
           </motion.li>
         ))}
