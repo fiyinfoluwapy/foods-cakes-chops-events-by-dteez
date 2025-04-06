@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from 'next/image'; 
 import { useEffect, useState } from "react";
-import { textStagger, fadeIn, floatingButton } from "../utils/animations";  
+import { textStagger, fadeIn, floatingButton, floatingAccents } from "../utils/animations";  
 
 export default function Header() {
     const [offsetY, setOffsetY] = useState(0);
@@ -59,7 +59,8 @@ export default function Header() {
                     Explore Now
                 </motion.button>
             </div>
-
+            
+            
             {/* Image Section */}
             <motion.div
                 style={{ transform: `translateY(${offsetY}px)` }}
@@ -73,6 +74,18 @@ export default function Header() {
                     className="rounded-lg shadow-lg object-cover"
                 />
             </motion.div>
+
+            {/* Floating Decorative Elements */}
+      <motion.div
+        className="absolute top-10 left-10 w-10 h-10 bg-orange-400 rounded-full opacity-30"
+        variants={floatingAccents}
+        animate="floating"
+      />
+      <motion.div
+        className="absolute bottom-10 right-10 w-14 h-14 bg-yellow-500 rounded-full opacity-30"
+        variants={floatingAccents}
+        animate="floating"
+      />
         </section>
     );
 }
