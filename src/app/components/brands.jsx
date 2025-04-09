@@ -9,13 +9,13 @@ const brands = [
     name: "Dteez Cakes",
     image: "/dteez-cakes.jpg",
     description: "Custom cakes for every occasion.",
-    link: "/cake-gallery"
+    link: "/pages/cake-page"
   },
   {
     name: "Dteez Foods",
     image: "/dteez-food.jpg",
     description: "Delicious home-cooked meals, made fresh daily.",
-    link: "/food-gallery"
+    link: "/pages/food-page"
   },
   {
     name: "Dteez Chops & Grills",
@@ -25,7 +25,7 @@ const brands = [
   }
 ];
 
-export default function MeetOurBrands() {
+export default function MeetOurBrands({ onButtonClick }) {
   return (
     <section id="meet-our-brands" className="py-16 bg-white text-center">
       <motion.h2
@@ -70,9 +70,15 @@ export default function MeetOurBrands() {
                   />
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button className="bg-white text-black px-4 py-2 rounded-lg font-semibold font-oleo shadow-md">
-                    Explore {brand.name}
-                  </button>
+                  {/* Add a button to trigger onButtonClick */}
+                  {brand.name === "Dteez Cakes" && (
+                    <button
+                      className="bg-white text-black px-4 py-2 rounded-lg font-semibold font-oleo shadow-md"
+                      onClick={onButtonClick}
+                    >
+                      Explore {brand.name}
+                    </button>
+                  )}
                 </div>
               </div>
             </Link>

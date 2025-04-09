@@ -1,10 +1,9 @@
-// app/layout.js
+// src/app/layout.js
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from './components/navbar';
-import Header from "./components/header";
-import AboutSection from "./components/about";
-import MeetOurBrands from "./components/brands";
+
+import ConditionalHomeSections from './components/ConditionalHomeSections';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,9 +25,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Navbar />
-        <Header />
-        <AboutSection />
-        <MeetOurBrands />
+        
+        {/* Conditional rendering for homepage-specific sections */}
+        <ConditionalHomeSections />
         <main>{children}</main>
       </body>
     </html>

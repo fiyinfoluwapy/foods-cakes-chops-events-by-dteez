@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Party Jollof",
+        "category": "Event Serving",
+        "image": "https://i.pinimg.com/736x/f4/16/96/f4169602f9c8a40a0fac0f1157763a28.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Party Jollof",
+        "category": "Jollof Rice",
+        "image": "https://i.pinimg.com/736x/d6/12/9f/d6129f0701dd9b44475a4ef6126b22d5.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Shrimp Fried Rice",
+        "category": "Fried Rice",
+        "image": "https://i.pinimg.com/736x/b0/80/df/b080df86d8a9061d3c12be4808571b29.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Ofada Rice",
+        "category": "All",
+        "image": "https://i.pinimg.com/736x/38/f6/4b/38f64ba89736fced22d189fb02fd9ab5.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Amala & Ewedu",
+        "category": "African Dish",
+        "image": "https://i.pinimg.com/736x/06/e1/e1/06e1e16ebfe039e8c9c9fa469eadced6.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Moi Moi (Steamed Bean Pudding)",
+        "category": "African Dish",
+        "image": "https://i.pinimg.com/736x/16/d8/0a/16d80ae65c12bd3a7c586972873783f5.jpg"
+    }
+]

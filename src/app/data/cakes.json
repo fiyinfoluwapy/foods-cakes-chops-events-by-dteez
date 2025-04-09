@@ -1,0 +1,40 @@
+[
+    {
+      "id": 1,
+      "name": "Chocolate Fudge Cake",
+      "category": "Birthday Cakes",
+      "image": "https://i.pinimg.com/736x/25/f6/ad/25f6ad0012aac44bfcee2dd85abd7422.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Classic Wedding Cake",
+      "category": "Wedding Cakes",
+      "image": "https://i.pinimg.com/736x/56/5a/b5/565ab586ba0e3c8b669544fc0b69f74f.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Black Velvet Cake",
+      "category": "Wedding Cakes",
+      "image": "https://i.pinimg.com/736x/3d/d0/92/3dd0925c9d2c906f2a50b5528314542f.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Red Velvet Cake",
+      "category": "Birthday Cakes",
+      "image": "https://i.pinimg.com/736x/6f/f4/c7/6ff4c7a6705a1afbfd4f86ab60cc8d3f.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Wedding Tower",
+      "category": "Birthday Cakes",
+      "image": "https://i.pinimg.com/736x/cd/df/e2/cddfe2220369c8eceb92716411da6760.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Vintage Cake",
+      "category": "Wedding Cakes",
+      "image": "https://i.pinimg.com/736x/7e/e0/39/7ee039dcffc320c8656a6d2d8a61091a.jpg"
+    }
+
+  ]
+  
