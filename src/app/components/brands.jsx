@@ -21,7 +21,7 @@ const brands = [
     name: "Dteez Chops & Grills",
     image: "/dteez-grills.jpg",
     description: "Tasty grilled delicacies and small chops for your events.",
-    link: "/grills-gallery"
+    link: "/pages/grills-page"
   }
 ];
 
@@ -71,14 +71,14 @@ export default function MeetOurBrands({ onButtonClick }) {
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {/* Add a button to trigger onButtonClick */}
-                  {brand.name === "Dteez Cakes" && (
+                  {/* {brand.name === "Dteez Cakes" && ( */}
                     <button
                       className="bg-white text-black px-4 py-2 rounded-lg font-semibold font-oleo shadow-md"
                       onClick={onButtonClick}
                     >
                       Explore {brand.name}
                     </button>
-                  )}
+                  {/* )} */}
                 </div>
               </div>
             </Link>

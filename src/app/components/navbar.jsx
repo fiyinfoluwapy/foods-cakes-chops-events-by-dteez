@@ -4,50 +4,43 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { fadeIn, slideInFromTop, slideInFromRight, staggerChildren } from '../utils/animations';
+import {
+  fadeIn,
+  slideInFromTop,
+  slideInFromRight,
+  staggerChildren,
+} from '../utils/animations';
 import Image from 'next/image';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
-  const router = useRouter(); // Use router for navigation
+  const router = useRouter();
 
   const navLinks = [
     { name: 'Home', link: '/' },
-    { name: 'Food Gallery', link: '/food-gallery' },
-    { name: 'Cake Gallery', link: '/cake-gallery' },
-    { name: 'Grills & Chops', link: '/grills-gallery' },
+    { name: 'Cake Gallery', link: '/pages/cake-page' },
+    { name: 'Food Gallery', link: '/pages/food-page' },
+    { name: 'Grills & Chops', link: '/pages/grills-page' },
     { name: 'Contact', link: '/contact' },
   ];
 
-  // Track scrolling behavior
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolling(true);
-      } else {
-        setScrolling(false);
-      }
+      setScrolling(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add('overflow-hidden');
-    } else {
-      document.body.classList.remove('overflow-hidden');
-    }
+    document.body.classList.toggle('overflow-hidden', isOpen);
     return () => document.body.classList.remove('overflow-hidden');
   }, [isOpen]);
 
-  // Handle mobile navigation properly
   const handleMobileNav = (link) => {
-    setIsOpen(false); // Close menu
-    router.push(link); // Navigate to the link
+    setIsOpen(false);
+    router.push(link);
   };
 
   return (
@@ -55,14 +48,16 @@ export default function Navbar() {
       variants={slideInFromTop}
       initial="hidden"
       animate="visible"
-      className={`fixed top-0 left-0 w-full p-4 flex justify-between items-center z-50 transition-all duration-300 ${scrolling ? 'bg-black text-white shadow-lg' : 'bg-white text-black shadow-md'}`}
+      className={`fixed top-0 left-0 w-full p-4 flex justify-between items-center z-50 transition-all duration-300 ${
+        scrolling ? 'bg-black text-white shadow-lg' : 'bg-white text-black shadow-md'
+      }`}
     >
       {/* Logo */}
       <motion.h1
         variants={fadeIn}
         initial="hidden"
         animate="visible"
-        className="text-3xl font-bold font-chakra"
+        className="text-3xl font-bold font-oleo"
       >
         Dteez
       </motion.h1>
@@ -75,13 +70,12 @@ export default function Navbar() {
         className="hidden md:flex gap-8"
       >
         {navLinks.map((link, index) => (
-          <motion.li
-            key={index}
-            variants={fadeIn}
-            className="transition duration-300"
-          >
-            <Link href={link.link} className="hover:text-orange-500 hover:font-chakra">
-              {link.name} 
+          <motion.li key={index} variants={fadeIn}>
+            <Link
+              href={link.link}
+              className="transition-all duration-300 transform hover:scale-105 hover:text-orange-500 hover:font-oleo"
+            >
+              {link.name}
             </Link>
           </motion.li>
         ))}
@@ -97,8 +91,8 @@ export default function Navbar() {
         animate="visible"
       >
         <Image
-          src={isOpen ? "/menu-close.png" : "/menu-open.png"}
-          alt={isOpen ? "Close menu" : "Open menu"}
+          src={isOpen ? '/menu-close.png' : '/menu-open.png'}
+          alt={isOpen ? 'Close menu' : 'Open menu'}
           width={32}
           height={32}
           priority
@@ -118,18 +112,16 @@ export default function Navbar() {
         variants={slideInFromRight}
         initial="hidden"
         animate={isOpen ? 'visible' : 'hidden'}
-        className={`fixed top-0 right-0 h-full w-2/3 bg-white shadow-lg transform md:hidden transition-all duration-500 z-40 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`fixed top-0 right-0 h-full w-2/3 bg-white shadow-lg transform md:hidden transition-all duration-500 z-40 ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
       >
         <ul className="flex flex-col items-center gap-8 mt-20 text-lg">
           {navLinks.map((link, index) => (
-            <motion.li
-              key={index}
-              variants={fadeIn}
-              className="cursor-pointer transition duration-300"
-            >
+            <motion.li key={index} variants={fadeIn}>
               <button
                 onClick={() => handleMobileNav(link.link)}
-                className="text-black text-lg hover:text-orange-500 hover:font-chakra"
+                className="text-black text-lg transition-all duration-300 transform hover:scale-105 hover:text-orange-500 hover:font-oleo"
               >
                 {link.name}
               </button>
@@ -137,7 +129,6 @@ export default function Navbar() {
           ))}
         </ul>
       </motion.div>
-
     </motion.nav>
   );
 }

@@ -3,7 +3,7 @@ import FoodGallery from "../../components/FoodGallery";
 
 const FoodPage = () => {
   return (
-    <section>
+    <section className="mt-16" >
       <FoodGallery />
     </section>
   );

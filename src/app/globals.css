@@ -1,2 +1,16 @@
 @import "tailwindcss";
 
+:root {
+    --font-geist-sans: 'Geist', sans-serif;
+    --font-geist-mono: 'Geist Mono', monospace;
+    --font-oleo: 'Oleo Script', cursive;
+    --font-cormorant: 'Cormorant', serif;
+  }
+  
+  .font-oleo {
+    font-family: var(--font-oleo);
+  }
+  
+  .font-cormorant {
+    font-family: var(--font-cormorant);
+  }
