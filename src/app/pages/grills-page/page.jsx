@@ -1,4 +1,4 @@
-// src/app/pages/cake-page/page.jsx
+// Importing necessary modules and components
 import GrillsGallery from "../../components/GrillsGallery";
 
 

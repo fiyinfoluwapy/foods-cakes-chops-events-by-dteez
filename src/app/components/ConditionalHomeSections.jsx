@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import Header from './header';
 import AboutSection from './about';
 import MeetOurBrands from './brands';
+import ContactSection from './contact';
 import CakeGallery from './CakeGallery';
 import FoodGallery from './FoodGallery';
 import GrillsGallery from './GrillsGallery';
@@ -40,7 +41,7 @@ const ConditionalHomeSections = () => {
       {showCakeGallery && <CakeGallery />}
       {showFoodGallery && <FoodGallery />}
       {showGrillsGallery && <GrillsGallery />}
-
+      <ContactSection />
     </>
   );
 };

@@ -1,5 +1,7 @@
 {
-  "/pages/cake-page/page": "app/pages/cake-page/page.js",
   "/page": "app/page.js",
+  "/pages/contact-page/page": "app/pages/contact-page/page.js",
+  "/pages/grills-page/page": "app/pages/grills-page/page.js",
+  "/pages/cake-page/page": "app/pages/cake-page/page.js",
   "/pages/food-page/page": "app/pages/food-page/page.js"
 }

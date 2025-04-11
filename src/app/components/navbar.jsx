@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
   fadeIn,
@@ -16,13 +16,14 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   const navLinks = [
     { name: 'Home', link: '/' },
     { name: 'Cake Gallery', link: '/pages/cake-page' },
     { name: 'Food Gallery', link: '/pages/food-page' },
     { name: 'Grills & Chops', link: '/pages/grills-page' },
-    { name: 'Contact', link: '/contact' },
+    { name: 'Contact', link: '/pages/contact-page' },
   ];
 
   useEffect(() => {
@@ -40,7 +41,25 @@ export default function Navbar() {
 
   const handleMobileNav = (link) => {
     setIsOpen(false);
-    router.push(link);
+    if (link === '/') {
+      if (pathname === '/') {
+        const el = document.getElementById('home-page');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        router.push('/#home-page');
+      }
+    } else {
+      router.push(link);
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (pathname === '/') {
+      const el = document.getElementById('home-page');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      router.push('/#home-page');
+    }
   };
 
   return (
@@ -57,7 +76,8 @@ export default function Navbar() {
         variants={fadeIn}
         initial="hidden"
         animate="visible"
-        className="text-3xl font-bold font-oleo"
+        onClick={handleLogoClick}
+        className="text-3xl font-bold font-oleo cursor-pointer hover:text-orange-500 transition duration-300"
       >
         Dteez
       </motion.h1>
@@ -71,12 +91,21 @@ export default function Navbar() {
       >
         {navLinks.map((link, index) => (
           <motion.li key={index} variants={fadeIn}>
-            <Link
-              href={link.link}
-              className="transition-all duration-300 transform hover:scale-105 hover:text-orange-500 hover:font-oleo"
-            >
-              {link.name}
-            </Link>
+            {link.name === 'Home' ? (
+              <button
+                onClick={() => handleMobileNav('/')}
+                className="transition-all duration-300 transform hover:scale-105 hover:text-orange-500 hover:font-oleo"
+              >
+                {link.name}
+              </button>
+            ) : (
+              <Link
+                href={link.link}
+                className="transition-all duration-300 transform hover:scale-105 hover:text-orange-500 hover:font-oleo"
+              >
+                {link.name}
+              </Link>
+            )}
           </motion.li>
         ))}
       </motion.ul>
